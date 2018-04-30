@@ -15,7 +15,7 @@ coleccion = db.articulos_guatemala
 campos_a_mostrar = ["Titulo","Contenido"]
 
 mensajeBienvenida="*******************************************************************************\nBIENVENIDO\n******************************************************************************* "
-menuInicio="Elija una de las sigueintes opciones:\n 1)Leer articulo\n 2)@\n 3)Comprobacion de lectura\n 4)@\n 5)Salir"
+menuInicio="Elija una de las sigueintes opciones:\n 1)Leer articulo\n 2)Mini-Juegos\n 3)Comprobacion de lectura\n 4)Estadisticas\n 5)Salir"
 print(mensajeBienvenida)
 print(menuInicio)
 opcionInicio=int(input())
@@ -63,6 +63,27 @@ while(opcionInicio !=5):
 				opcion = 5
 			else:
 				print("LEA ESTUPIDO")
+
 		print(mensajeBienvenida)
 		print(menuInicio)
 		opcionInicio=int(input())
+	if(opcionInicio==2):
+		#Mini-jUEGOS mar
+		print("En desarrollo")
+		print(mensajeBienvenida)
+		print(menuInicio)
+		opcionInicio=int(input())
+	if(opcionInicio==3):
+		#Comprenseion lectora mich
+		print("En desarrollo")
+		print(mensajeBienvenida)
+		print(menuInicio)
+		opcionInicio=int(input())
+	if(opcionInicio==4):
+		#Estadisticas Josue
+		print("En desarrollo")
+		print(mensajeBienvenida)
+		print(menuInicio)
+		opcionInicio=int(input())
+	if(opcionInicio==5):
+		opcionInicio = 5
