@@ -1,0 +1,12 @@
+ahorcado: chr ord ---> Mario
+Extra: 
+las preguntas ---> MICHELe
+mas articulos ----> josue 
+estadistica:
+coleccion en mongo que tenga el nombre de cada persona y la cantidad de correctas e incorrectas de cada persona 
+P.D: Si se te olvida los comandos, revisa en los ejercicios anteriores que hicimos o en canvas
+
+
+
+IMPORTANTE!!!!
+Hacer el pdf escrito por documents de google.
