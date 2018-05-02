@@ -5,11 +5,7 @@
 #Michele Benvenuto: 18232
 import random
 import pymongo
-from FuncionesEstadisticas import ver_estadisticas
-from FuncionesEstadisticas import agregar_estadisticas
-from FuncionesEstadisticas import buscar_estadisticas
-from FuncionesEstadisticas import modificar_estadisticas
-
+from FuncionesEstadisticas import *
 
 opcion = 0
 conexion = pymongo.MongoClient()
@@ -68,7 +64,7 @@ while(opcionInicio !=5):
                      elif opcion == 5:
                             opcion = 5
                      else:
-                            print("LEA ESTUPIDO")
+                            print("Porfavor ingrese las opciones del menu")
 
               print(mensajeBienvenida)
               print(menuInicio)
