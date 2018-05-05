@@ -158,15 +158,15 @@ while(opcionInicio !=5):
               opcionInicio=int(input())
        if(opcionInicio==3):
               #Comprenseion lectora mich
-              preguntas_articulo_Tabaco_frena_el_desarrollo_en_Guatemala={"Pregunta1": ["1)Respuesta","2)Respuesta "],"Pregunta2":["1)Respuesta","2)Respuesta"]}
-              preguntas_articulo_Impulsan_mejores_contorles={"Pregunta1": ["1)Respuesta","2)Respuesta "],"Pregunta2":["1)Respuesta","2)Respuesta"]}
+              preguntas_articulo_Tabaco_frena_el_desarrollo_en_Guatemala={"1)Cuantas personas mueren al año por efermedades asosiadas al tabaco?": ["  1)6 millones","  2)7 millones "],"2)Cuanto porciento de su ingreso gastan los fumadores en cigarros?":["  1)20%","  2)10%"]}
+              preguntas_articulo_Impulsan_mejores_controles={"1)Que institucion esta impulsando la nueva iniciativa?":["  1)USAC","  2)IGGS"],"2)Cual de las siguientes NO es una razon por la cual se esta creando esta ley?":["  1)Proteger las politicas publicas de salud","  2)Disminuir la cantidad de fumadores"]}
               correctas=0
               incorrectas=0
               total_correctas=0
               total_incorrectas=0
-              questionario= input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n")
-              while(questionario !="3"):
-                 if(questionario=="1"):
+              questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n"))
+              while(questionario !=3):
+                 if(questionario==1):
                     preguntas=preguntas_articulo_Tabaco_frena_el_desarrollo_en_Guatemala.keys()
                     for pregunta in preguntas:
                        print(pregunta)
@@ -192,12 +192,12 @@ while(opcionInicio !=5):
                     print("Respuestas incorrectas: "+str(incorrectas))
                     correctas=0
                     incorrectas=0
-                    questionario= input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n")
-                 if(questionario=="2"):
-                    preguntas=preguntas_articulo_Impulsan_mejores_contorles.keys()
+                    questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n"))
+                 if(questionario==2):
+                    preguntas=preguntas_articulo_Impulsan_mejores_controles.keys()
                     for pregunta in preguntas:
                        print(pregunta)
-                       opciones=preguntas_articulo_Tabaco_frena_el_desarrollo_en_Guatemala[pregunta]
+                       opciones=preguntas_articulo_Impulsan_mejores_controles[pregunta]
                        for a in opciones:
                           print(a)
                        print("")
@@ -219,13 +219,12 @@ while(opcionInicio !=5):
                     print("Respuestas incorrectas: "+str(incorrectas))
                     correctas=0
                     incorrectas=0
-                    questionario= input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n")
+                    questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n"))
                  if(questionario>3):
                         print("Esa no es una opcion del menu")
-                        questionario= input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n")
+                        questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n"))
               print("Total de respuestas correctas: "+str(total_correctas))
               print("Total de respuestas incorrectas: "+str(total_incorrectas))
-              print("En desarrollo")
               print(mensajeBienvenida)
               print(menuInicio)
               opcionInicio=int(input())
