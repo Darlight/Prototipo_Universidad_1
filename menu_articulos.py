@@ -3,7 +3,7 @@
 #Michele Benvenutoo 18232
 #Mario Perdomo 18029 
 #Josue Sagastume 18173
-#Funcion: menu de los articulos
+#Funcion: creador de la base de datos
 import random
 import pymongo
 guatemala_articulo1 = {
