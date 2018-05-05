@@ -5,7 +5,7 @@
 
 import random
 from palabras import lista_de_palabras
-from funciones import dibujo
+from funcioneAhorcado import dibujo
 print ("Bienvenido al Ahorcado \n")
 print("Simplemente adivine la palabra, tiene 7 oportunidades para no ser Ahorcado\n")
 desea_jugar = True
