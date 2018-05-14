@@ -1,13 +1,26 @@
+Cosas de Mario;
 ahorcado: chr ord (cambiar las ñ y las tildes en numeros) ---> Mario
 que las palabras se convierten en claves en un dic para presentar la definicion
-Extra: 
+Pictionary
+Palabras encadenadas
+
+
+Cosas de michele: 
 las preguntas ---> MICHELe
+Michele: Preguntas meterlas a mongo
+Cosas de Josue
 mas articulos ----> josue 
 estadistica:
 coleccion en mongo que tenga el nombre de cada persona y la cantidad de correctas e incorrectas de cada persona 
-P.D: Si se te olvida los comandos, revisa en los ejercicios anteriores que hicimos o en canvas
+P.D: Si se te olvida los comandos, revisa en los ejercicios anteriores que hicimos o en canvas.
 
+IMPORTANTE!!!! Se entrega el otro miercoles!
 
+	Mejorar la interfaz
+	Vídeo (5 minutos)
+	El informe
+	Estadisticas: Media y modas
+	Revisar lo que se evaluar en canvas
+Extra para michele:
+Buscar interfaz gráfica.
 
-IMPORTANTE!!!!
-Hacer el pdf escrito por documents de google.
