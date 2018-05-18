@@ -8,6 +8,7 @@ import pymongo
 from FuncionesEstadisticas import *
 from funcionesAhorcado import *
 from palabras import lista_de_palabras
+from time import sleep
 opcion = 0
 conexion = pymongo.MongoClient()
 db = conexion.proyecto
@@ -18,7 +19,7 @@ campos_a_mostrar = ["Titulo","Contenido"]
 
 
 mensajeBienvenida="*******************************************************************************\nBIENVENIDO\n******************************************************************************* "
-menuInicio="Elija una de las sigueintes opciones:\n 1)Leer articulo\n 2)Mini-Juegos\n 3)Comprobacion de lectura\n 4)Estadisticas\n 5)Salir"
+menuInicio="Elija una de las sigueintes opciones:\n 1)Leer articulo\n 2)Mini-Juegos\n 3)Comprobacion de lectura\n 4)Ver estadisticas\n 5)Salir"
 print(mensajeBienvenida)
 print(menuInicio)
 opcionInicio=int(input())
@@ -50,7 +51,7 @@ while(opcionInicio !=5):
                                           #Resultado consigue el articulo con titulo y contenido sin el id para que sea mas presentable
                                           resultado = coleccion.find_one({"Titulo":"Tabaco frena el desarrollo en Guatemala"},{"_id": 0, "Titulo": 1, "Contenido": 1})
                                           for campo in campos_a_mostrar:
-                                                 print(str(resultado[campo]) + "\n")
+                                                 print(str(resultado[campo]))
                                    elif opcion2 == 2:
                                           resultado = coleccion.find_one({"Titulo":"Impulsan mejores controles"},{"_id": 0, "Titulo": 1, "Contenido": 1})
                                           for campo in campos_a_mostrar:
@@ -192,7 +193,24 @@ while(opcionInicio !=5):
                     print("Respuestas incorrectas: "+str(incorrectas))
                     correctas=0
                     incorrectas=0
+                     
+                    
+                    usuario = input("Ingrese su nombre: ")
+                    punteo = {"Nombre": usuario, "Correctas":total_correctas, "Incorrectas":total_incorrectas}
+                    r = agregar_estadisticas(db, usuario, punteo, total_correctas, total_incorrectas)
+
+                    if r == 1:
+                           print("Las puntuaciones se agregaron con exito")
+                           print(" ")
+                           sleep(1)
+                    else:
+                           print("Las puntuaciones no se agregaron")
+                           print(" ")
+                           sleep(1)
+ 
+                    
                     questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n"))
+                    
                  if(questionario==2):
                     preguntas=preguntas_articulo_Impulsan_mejores_controles.keys()
                     for pregunta in preguntas:
@@ -219,6 +237,20 @@ while(opcionInicio !=5):
                     print("Respuestas incorrectas: "+str(incorrectas))
                     correctas=0
                     incorrectas=0
+
+                    usuario = input("Ingrese su nombre: ")
+                    punteo = {"Nombre": usuario, "Correctas":total_correctas, "Incorrectas":total_incorrectas}
+                    r = agregar_estadisticas(db, usuario, punteo, total_correctas, total_incorrectas)
+
+                    if r == 1:
+                           print("Las puntuaciones se agregaron con exito")
+                           print(" ")
+                           sleep(1)
+                    else:
+                           print("Las puntuaciones no se agregaron")
+                           print(" ")
+                           sleep(1)
+                    
                     questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n"))
                  if(questionario>3):
                         print("Esa no es una opcion del menu")
@@ -230,35 +262,14 @@ while(opcionInicio !=5):
               opcionInicio=int(input())
        if(opcionInicio==4):
               #Estadisticas Josue
-               menuEstadisticas = "Que deseas hacer?\n1. Agregar un usuario\n2. Ver las estadisticas\n3. Salir"
-               opcionE = 0
-               while opcionE != 3:
-                       print(menuEstadisticas)
-                       opcionE = int(input())
-                       if opcionE == 1:
-                               nombre = input("Ingrese el nombre del usuario: ")
-                               correctas = int(input("Ingrese el numero de aciertos que ha obtenido: "))
-                               incorrectas = int(input("Ingrese el numero de malas que ha obtenido: "))
-                               usuario = {"Nombre":nombre, "Correctas":correctas, "Incorrectas":incorrectas}
-                               r = agregar_estadisticas(db, usuario)
-                               if r == 1:
-                                       print("Se han agregado los datos con exito")
-                               else:
-                                       print("No se agregaron los datos")
-                       elif opcionE == 2:
-                               resultado = ver_estadisticas(db)
-                               for i in resultado:
-                                       print(i)
-                               print(menuEstadisticas)
-                               opcionE = int(input()) 
-                       elif opcionE == 3:
-                               opcionE = 3
-                       else:
-                               print("La opcion que ingreso no se encuentra en la lista")
-                               print(menuEstadisticas)
-                               opcionE = int(input())
-               print(mensajeBienvenida)
-               print(menuInicio)
-               opcionInicio=int(input())
+              resultado = ver_estadisticas(db)
+              for i in resultado:
+                     print(i)
+                     sleep(0.03)
+
+              sleep(1)
+              print(mensajeBienvenida)
+              print(menuInicio)
+              opcionInicio=int(input())
        if(opcionInicio==5):
               opcionInicio = 5
