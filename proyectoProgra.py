@@ -30,13 +30,13 @@ while(opcionInicio !=5):
               while opcion != 5:
                      opcion = int(input("""
                       Menu de Articulos
-*************************************************************************************************
+*******************************************************************************
 1. Articulos relacionados al pais de Guatemala
 2. #
 3. #
 4. #
 5. Salir
-*************************************************************************************************
+*******************************************************************************
                             """))
                      if opcion == 1:
                             opcion2 = 0
@@ -78,12 +78,12 @@ while(opcionInicio !=5):
               while opcionJuegos != 4:
                 opcionJuegos = int(input("""
                   Menu de Juegos
-*************************************************************************************************
+*******************************************************************************
 1. Ahorcado
 2. Palabras encadenadas
 3. Pictionary
 4. Salir
-*************************************************************************************************
+*******************************************************************************
 """))
                 if opcionJuegos == 1:
                   print ("Bienvenido al Ahorcado \n")
@@ -191,13 +191,12 @@ while(opcionInicio !=5):
                         total_incorrectas+=1
                     print("Respuestas correctas: "+str(correctas))
                     print("Respuestas incorrectas: "+str(incorrectas))
-                    correctas=0
-                    incorrectas=0
+                    
                      
                     
                     usuario = input("Ingrese su nombre: ")
-                    punteo = {"Nombre": usuario, "Correctas":total_correctas, "Incorrectas":total_incorrectas}
-                    r = agregar_estadisticas(db, usuario, punteo, total_correctas, total_incorrectas)
+                    punteo = {"Nombre": usuario, "Correctas":correctas, "Incorrectas":incorrectas}
+                    r = agregar_estadisticas(db, usuario, punteo, correctas, incorrectas)
 
                     if r == 1:
                            print("Las puntuaciones se agregaron con exito")
@@ -208,7 +207,8 @@ while(opcionInicio !=5):
                            print(" ")
                            sleep(1)
  
-                    
+                    correctas=0
+                    incorrectas=0
                     questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n"))
                     
                  if(questionario==2):
@@ -235,12 +235,11 @@ while(opcionInicio !=5):
                         total_incorrectas+=1
                     print("Respuestas correctas: "+str(correctas))
                     print("Respuestas incorrectas: "+str(incorrectas))
-                    correctas=0
-                    incorrectas=0
+                    
 
                     usuario = input("Ingrese su nombre: ")
-                    punteo = {"Nombre": usuario, "Correctas":total_correctas, "Incorrectas":total_incorrectas}
-                    r = agregar_estadisticas(db, usuario, punteo, total_correctas, total_incorrectas)
+                    punteo = {"Nombre": usuario, "Correctas":correctas, "Incorrectas":incorrectas}
+                    r = agregar_estadisticas(db, usuario, punteo, correctas, incorrectas)
 
                     if r == 1:
                            print("Las puntuaciones se agregaron con exito")
@@ -250,7 +249,9 @@ while(opcionInicio !=5):
                            print("Las puntuaciones no se agregaron")
                            print(" ")
                            sleep(1)
-                    
+                           
+                    correctas=0
+                    incorrectas=0
                     questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n"))
                  if(questionario>3):
                         print("Esa no es una opcion del menu")

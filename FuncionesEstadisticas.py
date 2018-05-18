@@ -22,7 +22,6 @@ def ver_estadisticas(db):
 def buscar_estadisticas(db, nombre):
     col = db["estadisticas"]
     resultado = col.find({"Nombre":nombre}).count() > 0
-    print("---Se busco las estadisticas---")
     return resultado
 
 def agregar_estadisticas(db, usuario, punteo, total_correctas, total_incorrectas):
@@ -31,7 +30,6 @@ def agregar_estadisticas(db, usuario, punteo, total_correctas, total_incorrectas
 
     if (buscar_estadisticas(db, usuario) == False):
         col.insert(punteo)
-        print("---Se creo un nuevo usuario---")
         exito = 1
     elif (buscar_estadisticas(db, usuario) == True):
         datos_usuario = col.find({"Nombre": usuario})
@@ -39,44 +37,7 @@ def agregar_estadisticas(db, usuario, punteo, total_correctas, total_incorrectas
             incorrectas = i["Incorrectas"] + total_incorrectas
             correctas = i["Correctas"] + total_correctas
             cambios = {"Correctas":correctas, "Incorrectas":incorrectas}
-        col.update({"Nombre":usuario}, {"$set":cambios})
-        print("---Se actualizo los datos del usuario---")
+            col.update({"Nombre":usuario}, {"$set":cambios})
         exito = 1
     return(exito)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def modificar_estadisticas(db, nombre, cambios):
-    exito = -1
-    col = db["proyecto"]
-    if (buscar_estadisticas(db, nombre) == True):
-        col.update({"Nombre":nombre}, {"$set":cambios})
-        exito = 1
-    return(exito)
