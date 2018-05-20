@@ -1,7 +1,12 @@
 Cosas de Mario;
 ahorcado: chr ord (cambiar las ñ y las tildes en numeros) ---> Mario
 que las palabras se convierten en claves en un dic para presentar la definicion
-Pictionary
+Ordenar la imagen 
+cuadro 1 cuadro 2 cuadro 3
+cuadro 4 cuadro 5 cuadro 6
+cuaddro 7 cuadro 8 cuadro 9
+cada cuadro contiene una parte de una imagen
+
 Palabras encadenadas
 
 
