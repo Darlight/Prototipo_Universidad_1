@@ -134,8 +134,7 @@ while(opcionInicio !=5):
                       #Nueva forma de ganar
                       if ("".join(palabra_en_guiones)) == palabra_elegida:
                         oportunidades = 7
-<<<<<<< HEAD
-#<<<<<<< HEAD
+
                         print("Gano! la palabra correcta es: " + palabra_elegida)
 
                         correctas = 1
@@ -173,20 +172,19 @@ while(opcionInicio !=5):
                                sleep(1)
                         
                     #Se pregunta si desea jugar otra vez
-#=======
+
                         print("Gano! la palabra correcta fue: " + palabra_elegida)
                         #De lo contrario, perdio el juego y se muestra la palabra
                       elif oportunidades == 7 and ("".join(palabra_en_guiones)) != palabra_elegida:
                         print ("usted ha perdido, la palabra correcta era: ", palabra_elegida)
                         #Se pregunta si desea jugar otra vez
-#>>>>>>> d9dbc92bdf4c46710d99fa6e2ebdb85be3a57f2e
-=======
+
                         print("Gano! la palabra correcta fue: " + palabra_elegida)
                         #De lo contrario, perdio el juego y se muestra la palabra
                       elif oportunidades == 7 and ("".join(palabra_en_guiones)) != palabra_elegida:
                         print ("usted ha perdido, la palabra correcta era: ", palabra_elegida)
                         #Se pregunta si desea jugar otra vez
->>>>>>> d9dbc92bdf4c46710d99fa6e2ebdb85be3a57f2e
+
                     respuesta = input("Desea jugar de nuevo? : si o no ")
                     if respuesta == "si":
                       desea_jugar = True
@@ -224,7 +222,7 @@ while(opcionInicio !=5):
                         print(oportunidades)
                         print("Fallaste! Pierdes una vida. \n")
                         print("Vidas: " + str(oportunidades))
-<<<<<<< HEAD
+
                         print("Palabras usadas: " + str(palabras_usadas[0::1]))
                       if oportunidades == 0:
                         print("Ha perdido!")
@@ -244,12 +242,12 @@ while(opcionInicio !=5):
                                print(" ")
                                sleep(1)
                         
-=======
-                        print("Palabras usadas: " + palabras_usadas[0::1])
+
+                        print("Palabras usadas: " + str(palabras_usadas[0::1]))
                       if oportunidades == 0:
                         print("Ha perdido!")
                         print("Su puntaje fue de: " + str(puntaje) + " palabras!")
->>>>>>> d9dbc92bdf4c46710d99fa6e2ebdb85be3a57f2e
+
                         desea_jugar = input("Desea jugar de nuevo? (si/no) \n")
                 elif opcionJuegos == 3:
                   print("Casi terminado. P.D: Extra! \n")
