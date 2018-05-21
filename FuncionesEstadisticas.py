@@ -41,3 +41,51 @@ def agregar_estadisticas(db, usuario, punteo, total_correctas, total_incorrectas
         exito = 1
     return(exito)
 
+def promedio_estadisticas(db, tipo):
+    coleccion = db["estadisticas"]
+    datos = []
+    total = 0
+    contador = 0
+    x = range(0, 1000)
+    for j in x:
+        cantidad = coleccion.find({tipo:j})
+        for i in cantidad:
+            total += i[tipo]
+            contador += 1
+    if contador == 0:
+        contador = 1
+    promedio = (total/contador)
+    datos.append("Promedio de " + tipo.lower() + ": " + str(promedio))
+    
+    return datos
+
+def moda_estadisticas(db, correcta_incorrecta):
+    coleccion = db["estadisticas"]
+    x = range(0,1000)
+    datos = []
+    
+    for i in x:
+        valores_correctos = coleccion.find({correcta_incorrecta:i})
+        for j in valores_correctos:
+            correctas = j[correcta_incorrecta]
+            datos.append(correctas)
+
+    repeticiones = 0
+    for i in datos:
+        apariciones = datos.count(i)
+        if apariciones > repeticiones:
+            repeticiones = apariciones
+
+    modas = []
+    for i in datos:
+        apariciones = datos.count(i)
+        if apariciones == repeticiones and i not in modas:
+            modas.append(i)
+    return modas
+
+
+
+
+    
+    
+
