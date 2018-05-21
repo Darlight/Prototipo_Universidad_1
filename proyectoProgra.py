@@ -29,48 +29,33 @@ while(opcionInicio !=5):
        if(opcionInicio==1):
               #Menu de mario
               opcion = 0
-              while opcion != 5:
-                     opcion = int(input("""
-                      Menu de Articulos
-*******************************************************************************
-1. Articulos relacionados al pais de Guatemala
-2. #
-3. #
-4. #
-5. Salir
-*******************************************************************************
-                            """))
-                     if opcion == 1:
-                            opcion2 = 0
-
-                            while  opcion2 != 3:
-                                   opcion2 = int(input("""
+              while opcion != 6:
+                     opcion =  int(input("""
 1. Tabaco frena el desarrollo de Guatemala
 2. Impulsan mejores controles
-3. salir
+6. salir
 """))
-                                   if opcion2 == 1:
-                                          #Resultado consigue el articulo con titulo y contenido sin el id para que sea mas presentable
-                                          resultado = coleccion.find_one({"Titulo":"Tabaco frena el desarrollo en Guatemala"},{"_id": 0, "Titulo": 1, "Contenido": 1})
-                                          for campo in campos_a_mostrar:
-                                                 print(str(resultado[campo]))
-                                   elif opcion2 == 2:
-                                          resultado = coleccion.find_one({"Titulo":"Impulsan mejores controles"},{"_id": 0, "Titulo": 1, "Contenido": 1})
-                                          for campo in campos_a_mostrar:
-                                                 print(str(resultado[campo]) + "\n")
-                                   else:
-                                          print("En desarrollo...")
+                     if opcion == 1:
+                            #Resultado consigue el articulo con titulo y contenido sin el id para que sea mas presentable
+                            resultado = coleccion.find_one({"Titulo":"Tabaco frena el desarrollo en Guatemala"},{"_id": 0, "Titulo": 1, "Contenido": 1})
+                            for campo in campos_a_mostrar:
+                                   print(str(resultado[campo]))
                      elif opcion == 2:
-                            print("En desarrollo")
+                            resultado = coleccion.find_one({"Titulo":"Impulsan mejores controles"},{"_id": 0, "Titulo": 1, "Contenido": 1})
+                            for campo in campos_a_mostrar:
+                                   print(str(resultado[campo]) + "\n")
+                            else:
+                                   print("En desarrollo...")
                      elif opcion == 3:
                             print("En desarrollo")
                      elif opcion == 4:
                             print("En desarrollo")
                      elif opcion == 5:
-                            opcion = 5
+                            print("En desarrollo")
+                     elif opcion == 6:
+                            opcion = 6
                      else:
                             print("Porfavor ingrese las opciones del menu")
-
               print(mensajeBienvenida)
               print(menuInicio)
               opcionInicio=int(input())
