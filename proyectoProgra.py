@@ -18,8 +18,8 @@ db = conexion.proyecto
 coleccion = db.articulos_guatemala
 estadisticas = db.estadisticas
 campos_a_mostrar = ["Titulo","Contenido"]
-
-
+total_incorrectas=0
+total_correctas=0
 mensajeBienvenida="*******************************************************************************\nBIENVENIDO\n******************************************************************************* "
 menuInicio="Elija una de las sigueintes opciones:\n 1)Leer articulo\n 2)Mini-Juegos\n 3)Comprobacion de lectura\n 4)Ver estadisticas\n 5)Salir"
 print(mensajeBienvenida)
