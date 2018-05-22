@@ -15,11 +15,16 @@ opcion = 0
 conexion = pymongo.MongoClient()
 db = conexion.proyecto
 #Parte del modulo
-coleccion = db.articulos_guatemala
-estadisticas = db.estadisticas
 campos_a_mostrar = ["Titulo","Contenido"]
+<<<<<<< HEAD
+total_correctas = 0
+total_incorrectas = 0
 
 
+=======
+total_incorrectas=0
+total_correctas=0
+>>>>>>> 4c75b226766140239cef8dafcccb1617de72846f
 mensajeBienvenida="*******************************************************************************\nBIENVENIDO\n******************************************************************************* "
 menuInicio="Elija una de las sigueintes opciones:\n 1)Leer articulo\n 2)Mini-Juegos\n 3)Comprobacion de lectura\n 4)Ver estadisticas\n 5)Salir"
 print(mensajeBienvenida)
@@ -28,49 +33,35 @@ opcionInicio=int(input())
 while(opcionInicio !=5):
        if(opcionInicio==1):
               #Menu de mario
+              coleccion = db.articulos_guatemala
               opcion = 0
-              while opcion != 5:
-                     opcion = int(input("""
-                      Menu de Articulos
-*******************************************************************************
-1. Articulos relacionados al pais de Guatemala
-2. #
-3. #
-4. #
-5. Salir
-*******************************************************************************
-                            """))
-                     if opcion == 1:
-                            opcion2 = 0
-
-                            while  opcion2 != 3:
-                                   opcion2 = int(input("""
+              while opcion != 6:
+                     opcion =  int(input("""
 1. Tabaco frena el desarrollo de Guatemala
 2. Impulsan mejores controles
-3. salir
+6. salir
 """))
-                                   if opcion2 == 1:
-                                          #Resultado consigue el articulo con titulo y contenido sin el id para que sea mas presentable
-                                          resultado = coleccion.find_one({"Titulo":"Tabaco frena el desarrollo en Guatemala"},{"_id": 0, "Titulo": 1, "Contenido": 1})
-                                          for campo in campos_a_mostrar:
-                                                 print(str(resultado[campo]))
-                                   elif opcion2 == 2:
-                                          resultado = coleccion.find_one({"Titulo":"Impulsan mejores controles"},{"_id": 0, "Titulo": 1, "Contenido": 1})
-                                          for campo in campos_a_mostrar:
-                                                 print(str(resultado[campo]) + "\n")
-                                   else:
-                                          print("En desarrollo...")
+                     if opcion == 1:
+                            #Resultado consigue el articulo con titulo y contenido sin el id para que sea mas presentable
+                            resultado = coleccion.find_one({"Titulo":"Tabaco frena el desarrollo en Guatemala"},{"_id": 0, "Titulo": 1, "Contenido": 1})
+                            for campo in campos_a_mostrar:
+                                   print(str(resultado[campo]))
                      elif opcion == 2:
-                            print("En desarrollo")
+                            resultado = coleccion.find_one({"Titulo":"Impulsan mejores controles"},{"_id": 0, "Titulo": 1, "Contenido": 1})
+                            for campo in campos_a_mostrar:
+                                   print(str(resultado[campo]) + "\n")
+                            else:
+                                   print("En desarrollo...")
                      elif opcion == 3:
                             print("En desarrollo")
                      elif opcion == 4:
                             print("En desarrollo")
                      elif opcion == 5:
-                            opcion = 5
+                            print("En desarrollo")
+                     elif opcion == 6:
+                            opcion = 6
                      else:
                             print("Porfavor ingrese las opciones del menu")
-
               print(mensajeBienvenida)
               print(menuInicio)
               opcionInicio=int(input())
@@ -258,11 +249,11 @@ while(opcionInicio !=5):
               opcionInicio=int(input())
        if(opcionInicio==3):
               #Comprenseion lectora mich
-              questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n"))
+              questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Efecto del tabaco en la salud\n4)Contaminación por colillas de cigarro\n5)Reciclando colillas de cigarro\n6)Salir\n"))
               correctas=0
               incorrectas=0
               coleccion = db.Preguntas
-              while(questionario !=3):
+              while(questionario !=6):
                  if(questionario==1): 
                     preguntas=coleccion.find({"Articulo":"Tabaco frena el desarrollo en Guatemala"},{"_id":0,"Articulo":0})
                     for item in preguntas:
@@ -306,7 +297,7 @@ while(opcionInicio !=5):
  
                     correctas=0
                     incorrectas=0
-                    questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n"))
+                    questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Efecto del tabaco en la salud\n4)Contaminación por colillas de cigarro\n5)Reciclando colillas de cigarro\n6)Salir\n"))
                     
                  if(questionario==2):
                     preguntas=coleccion.find({"Articulo":"Impulsan mejores contorles"},{"_id":0,"Articulo":0})
@@ -350,10 +341,142 @@ while(opcionInicio !=5):
                            
                     correctas=0
                     incorrectas=0
-                    questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n"))
-                 if(questionario>3):
+                    questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Efecto del tabaco en la salud\n4)Contaminación por colillas de cigarro\n5)Reciclando colillas de cigarro\n6)Salir\n"))
+                 if(questionario==3): 
+                    preguntas=coleccion.find({"Articulo":"Efecto del tabaco en la salud"},{"_id":0,"Articulo":0})
+                    for item in preguntas:
+                           a= item
+                    for objeto in a:
+                           print(objeto)
+                           respuestas=a[objeto]
+                           for item in respuestas:
+                                  print (item)
+                    respuesta1=input("Ingrese la respuesta de la pregunta 1\n")
+                    respuesta2=input("Ingrese la respuesta de la pregunta 2\n")
+                    if(respuesta1=="1"):
+                        correctas+=1
+                        total_correctas+=1
+                    else:
+                        incorrectas+=1
+                        total_incorrectas+=1
+                    if(respuesta2=="1"):
+                        correctas+=1
+                        total_correctas+=1
+                    else:
+                        incorrectas+=1
+                        total_incorrectas+=1
+                    print("Respuestas correctas: "+str(correctas))
+                    print("Respuestas incorrectas: "+str(incorrectas))
+                    
+                     
+                    
+                    usuario = input("Ingrese su nombre: ")
+                    punteo = {"Nombre": usuario, "Correctas":correctas, "Incorrectas":incorrectas}
+                    r = agregar_estadisticas(db, usuario, punteo, correctas, incorrectas)
+
+                    if r == 1:
+                           print("Las puntuaciones se agregaron con exito")
+                           print(" ")
+                           sleep(1)
+                    else:
+                           print("Las puntuaciones no se agregaron")
+                           print(" ")
+                           sleep(1)
+ 
+                    correctas=0
+                    incorrectas=0
+                    questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Efecto del tabaco en la salud\n4)Contaminación por colillas de cigarro\n5)Reciclando colillas de cigarro\n6)Salir\n"))
+                 if(questionario==4): 
+                    preguntas=coleccion.find({"Articulo":"Contaminación por colillas de cigarro"},{"_id":0,"Articulo":0})
+                    for item in preguntas:
+                           a= item
+                    for objeto in a:
+                           print(objeto)
+                           respuestas=a[objeto]
+                           for item in respuestas:
+                                  print (item)
+                    respuesta1=input("Ingrese la respuesta de la pregunta 1\n")
+                    respuesta2=input("Ingrese la respuesta de la pregunta 2\n")
+                    if(respuesta1=="1"):
+                        correctas+=1
+                        total_correctas+=1
+                    else:
+                        incorrectas+=1
+                        total_incorrectas+=1
+                    if(respuesta2=="1"):
+                        correctas+=1
+                        total_correctas+=1
+                    else:
+                        incorrectas+=1
+                        total_incorrectas+=1
+                    print("Respuestas correctas: "+str(correctas))
+                    print("Respuestas incorrectas: "+str(incorrectas))
+                    
+                     
+                    
+                    usuario = input("Ingrese su nombre: ")
+                    punteo = {"Nombre": usuario, "Correctas":correctas, "Incorrectas":incorrectas}
+                    r = agregar_estadisticas(db, usuario, punteo, correctas, incorrectas)
+
+                    if r == 1:
+                           print("Las puntuaciones se agregaron con exito")
+                           print(" ")
+                           sleep(1)
+                    else:
+                           print("Las puntuaciones no se agregaron")
+                           print(" ")
+                           sleep(1)
+ 
+                    correctas=0
+                    incorrectas=0
+                    questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Efecto del tabaco en la salud\n4)Contaminación por colillas de cigarro\n5)Reciclando colillas de cigarro\n6)Salir\n"))
+                 if(questionario==5): 
+                    preguntas=coleccion.find({"Articulo":"Reciclando colillas de cigarro"},{"_id":0,"Articulo":0})
+                    for item in preguntas:
+                           a= item
+                    for objeto in a:
+                           print(objeto)
+                           respuestas=a[objeto]
+                           for item in respuestas:
+                                  print (item)
+                    respuesta1=input("Ingrese la respuesta de la pregunta 1\n")
+                    respuesta2=input("Ingrese la respuesta de la pregunta 2\n")
+                    if(respuesta1=="2"):
+                        correctas+=1
+                        total_correctas+=1
+                    else:
+                        incorrectas+=1
+                        total_incorrectas+=1
+                    if(respuesta2=="2"):
+                        correctas+=1
+                        total_correctas+=1
+                    else:
+                        incorrectas+=1
+                        total_incorrectas+=1
+                    print("Respuestas correctas: "+str(correctas))
+                    print("Respuestas incorrectas: "+str(incorrectas))
+                    
+                     
+                    
+                    usuario = input("Ingrese su nombre: ")
+                    punteo = {"Nombre": usuario, "Correctas":correctas, "Incorrectas":incorrectas}
+                    r = agregar_estadisticas(db, usuario, punteo, correctas, incorrectas)
+
+                    if r == 1:
+                           print("Las puntuaciones se agregaron con exito")
+                           print(" ")
+                           sleep(1)
+                    else:
+                           print("Las puntuaciones no se agregaron")
+                           print(" ")
+                           sleep(1)
+ 
+                    correctas=0
+                    incorrectas=0
+                    questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Efecto del tabaco en la salud\n4)Contaminación por colillas de cigarro\n5)Reciclando colillas de cigarro\n6)Salir\n"))   
+                 if(questionario>6):
                         print("Esa no es una opcion del menu")
-                        questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Salir\n"))
+                        questionario= int(input("Que articulo leyo?\n1)Tabaco frena el desarrollo en Guatemala\n2)Impulsan mejores contorles\n3)Efecto del tabaco en la salud\n4)Contaminación por colillas de cigarro\n5)Reciclando colillas de cigarro\n6)Salir\n"))
               print("Total de respuestas correctas: "+str(total_correctas))
               print("Total de respuestas incorrectas: "+str(total_incorrectas))
               print(mensajeBienvenida)
@@ -361,6 +484,7 @@ while(opcionInicio !=5):
               opcionInicio=int(input())
        if(opcionInicio==4):
               #Estadisticas Josue
+              coleccion=db.estadisticas
               sleep(0.5)
               print("*******************************************************************************")
               print("                                  PROMEDIOS                                    ")
