@@ -16,20 +16,15 @@ conexion = pymongo.MongoClient()
 db = conexion.proyecto
 #Parte del modulo
 campos_a_mostrar = ["Titulo","Contenido"]
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 total_correctas = 0
 total_incorrectas = 0
 
+total_incorrectas=0
+total_correctas=0
+total_incorrectas=0
+total_correctas=0
 
-=======
-total_incorrectas=0
-total_correctas=0
->>>>>>> 4c75b226766140239cef8dafcccb1617de72846f
-=======
-total_incorrectas=0
-total_correctas=0
->>>>>>> 4c75b226766140239cef8dafcccb1617de72846f
 mensajeBienvenida="*******************************************************************************\nBIENVENIDO\n******************************************************************************* "
 menuInicio="Elija una de las sigueintes opciones:\n 1)Leer articulo\n 2)Mini-Juegos\n 3)Comprobacion de lectura\n 4)Ver estadisticas\n 5)Salir"
 print(mensajeBienvenida)
@@ -351,6 +346,7 @@ while(opcionInicio !=5):
                       print("Cuadro 2: " + chr(mapa_usuario[0][1]) + "   " +"Cuadro 5: " +  chr(mapa_usuario[1][1]))
                       print("Cuadro 3: " + chr(mapa_usuario[0][2]) + "   " +"Cuadro 6: " +  chr(mapa_usuario[1][2]))
                       print("Intentos: " + str(intentos) + '\n')
+                      print("Advertencia: No coloque otras letras aparte de las mostradas.\n Detendría el programa en general. \n")
                       #Aqui se convierte la letra mayuscula en un numero
                       #Se podria utilizar minusculas, pero los valores seran mas grandes
                       #Del 99 o algo para adelante son las letras minusculas, pero

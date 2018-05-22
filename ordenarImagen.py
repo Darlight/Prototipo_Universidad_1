@@ -111,6 +111,7 @@ while desea_jugar == True:
 		print("Cuadro 2: " + chr(mapa_usuario[0][1]) + "   " +"Cuadro 5: " +  chr(mapa_usuario[1][1]))
 		print("Cuadro 3: " + chr(mapa_usuario[0][2]) + "   " +"Cuadro 6: " +  chr(mapa_usuario[1][2]))
 		print("Intentos: " + str(intentos) + '\n')
+		print("Advertencia: No coloque otras letras aparte de las mostradas.\n Detendría el programa en general. \n")
 		#Aqui se convierte la letra mayuscula en un numero
 		#Se podria utilizar minusculas, pero los valores seran mas grandes
 		#Del 99 o algo para adelante son las letras minusculas, pero
