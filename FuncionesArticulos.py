@@ -2,9 +2,8 @@
 import pymongo
 conexion = pymongo.MongoClient()
 db = conexion.proyecto
+
 coleccion = db.articulos
-
-
 mundial_articulo1 = {"Titulo":"Efectos del tabaco en la salud",
                      "Contenido":"""
 El consumo de tabaco es la principal causa de enfermedad, discapacidad y muerte en el mundo. 
@@ -29,7 +28,6 @@ describe con detalle las consecuencias del consumo de tabaco en la salud. El inf
 2010 describe los mecanismos biológicos por los cuales se produce el daño.
 """}
 
-coleccion.insert(mundial_articulo1)
 
 coleccion = db.articulos
 mundial_articulo2 = {"Titulo":"Contaminacion por colillas de cigarro",
@@ -65,7 +63,6 @@ cáñamo y algodón que los hace 100% biodegradables, llegando a servir como un 
 para todo tipo de plantas.
 """}
 
-coleccion.insert(mundial_articulo2)
 
 coleccion = db.articulos
 mundial_articulo3 = {"Titulo":"Reciclando colillas de cigarro",
@@ -107,49 +104,6 @@ permanecen durante mucho más tiempo, por lo que al darle un uso como el descrit
 anteriormente podría evitarse significativamente el daño al ambiente.
 """}
 
-coleccion.insert(mundial_articulo3)
-
-coleccion = db.articulos
-mundial_articulo3 = {"Titulo":"Reciclando colillas de cigarro",
-                     "Contenido":"""
-En la actualidad es importante el desarrollo de proyectos que fomenten un impacto positivo 
-al ambiente y así crear conciencia a la sociedad sobre el daño que se le hace al planeta. 
-Esta investigación tiene como objetivo enfocarse en ayudar a minimizar los daños que se 
-hacen al ambiente por medio del reciclaje de las colillas de cigarro, ya que una sola 
-colilla puede llegar a contaminar 8 litros de agua cuando son tiradas en el suelo, por los 
-componentes nocivos que se encuentran en el filtro.
-
-Las colillas de cigarro se encuentran impregnadas de un conjunto de sustancias que son 
-producto de la combustión de los componentes del cigarro. Esta mezcla de alrededor de 300 
-compuestos se conoce como alquitrán, y se compone de sustancias polares y apolares; la 
-investigación se basa en la obtención de un polímero (filtro del cigarro llamado acetato 
-de celulosa), el cual es purificado por medio de un sistema de reflujo y extracción soxhlet. 
-El acetato de celulosa es un compuesto que tiene grandes características, tales como gran 
-resistencia, transparencia y buena textura, parecida al algodón.
-
-El método consiste en utilizar un balón con un solvente caliente, una cámara con las 
-colillas de cigarro y un tubo refrigerante. Para favorecer la extracción completa de los 
-componentes, se emplean dos solventes de extracción, etanol como un solvente polar y éter 
-dietílico como un solvente no polar. Luego de realizar el proceso de purificación de las 
-colillas, estas pasan a tener un tono amarillento pero al realizar varias extracciones se 
-tornan de color blanco. El acetato de celulosa recuperado por sus propiedades puede 
-emplearse en la fabricación de una amplia variedad de productos, entre los cuales cabe 
-mencionar rollos de película, aislantes térmicos, fibras textiles, ya que estas fibras 
-son moldeables y porosas.
-
-En el proceso de la investigación se analiza el uso de nuevos solventes que sean más 
-económicos pero igual de efectivos. Esto aportaría un beneficio para que el proceso de 
-extracción sea viable al obtener el polímero, el cual podrá ser utilizado para fabricar 
-fibras textiles.
-
-Esta investigación también busca crear conciencia en las personas que desechan las colillas 
-de cigarro en el suelo sin percatarse del daño y contaminación que están causando, ya que 
-las colillas tardan en degradarse 15 años aproximadamente pero los efectos del alquitrán 
-permanecen durante mucho más tiempo, por lo que al darle un uso como el descrito 
-anteriormente podría evitarse significativamente el daño al ambiente.
-"""}
-
-coleccion.insert(mundial_articulo3)
 
 coleccion = db.articulos
 guatemala_articulo1 = {"Titulo":"Tabaco frena el desarrollo en Guatemala",
@@ -178,8 +132,6 @@ empiezan a consumir cigarrillos  y apoya que se endurezca la legislación contra
 de tabaco.
 """}
 
-coleccion.insert(guatemala_articulo1)
-
 coleccion = db.articulos
 guatemala_articulo2 = {"Titulo":"Impulsan mejores controles",
                      "Contenido":"""
@@ -199,6 +151,11 @@ iniciativa y de ser favorable para la población la apoyarían, y aseguró que n
 de una acción contra las empresas, sino a favor de la personas.
 """}
 
+
+coleccion.insert(mundial_articulo1)
+coleccion.insert(mundial_articulo2)
+coleccion.insert(mundial_articulo3)
+coleccion.insert(guatemala_articulo1)
 coleccion.insert(guatemala_articulo2)
 
 

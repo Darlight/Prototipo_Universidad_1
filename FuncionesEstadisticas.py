@@ -1,19 +1,38 @@
 #FUNCIONES ESTADISTICAS
-
-def ver_estadisticas(db):
+def ver_articulos(db, titulo):
     s = []
     m = []
     contador = 0
-    col = db["estadisticas"]
-    estadisticas = col.find()
-    for i in estadisticas:
+    coleccion = db["articulos"]
+    articulos = coleccion.find({"Titulo":titulo})
+    for i in articulos:
         s.append(i)
     for i in s:
         for j in i:
-            usuario = i.get(j)
-            resultado = (str(j) + ": " + str(usuario))
+            articulo = i.get(j)
+            resultado = (str(j) + ": " + str(articulo))
             m.append(resultado)
             contador += 1
+            if (contador % 3) == 0:
+                x = "\n"
+                m.append(x)
+    return m
+
+def ver_estadisticas(db):
+    s = []  #LISTAS VACIA
+    m = []
+    contador = 0 #CONTADOR SE IGUALA A 0
+    col = db["estadisticas"] #ESTABLEZCO LA CONEXION CON ESTA COLECCION
+    estadisticas = col.find() #SE OBTIENEN LOS DATOS QUE SE ENCUENTRAN DENTRO DE ESTA COLECCION
+    for i in estadisticas: #POR CADA ELEMENTO (DICCIONARIO)QUE SE ENCUENTRE EN ESTA COLECCION
+        s.append(i)        #SE IRAN AGREGANDO A LA LISTA VACIA DEL PRINCIPIO
+        
+    for i in s: #POR CADA ELEMENTO EN LA LISTA DE DICCIONARIOS
+        for j in i: #POR CADA ELEMENTO DE ESTOS DICCIONARIOS
+            usuario = i.get(j) #SE OBTIENE EL VALOR DE ESTE
+            resultado = (str(j) + ": " + str(usuario))
+            m.append(resultado) #SE AGREGA A LA LISTA VACIA M QUE ALMACENARA TODOS LOS DATOS QUE SE ENVIARAN AL PROGRAMA PRINCIPAL
+            contador += 1 #EL CONTADOR
             if (contador % 4) == 0:
                 x = "\n"
                 m.append(x)

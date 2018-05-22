@@ -11,7 +11,6 @@ from palabras import lista_de_palabras
 from time import sleep
 from funcionesEncadenaPalabras import *
 from funcionesOrdenarImagen import *
-from FuncionesArticulos import *
 
 opcion = 0
 conexion = pymongo.MongoClient()
@@ -22,17 +21,16 @@ campos_a_mostrar = ["Titulo","Contenido"]
 total_correctas = 0
 total_incorrectas = 0
 
-<<<<<<< HEAD
 
 
 total_incorrectas=0
 total_correctas=0
 
 
-=======
+
 total_incorrectas=0
 total_correctas=0
->>>>>>> 1fc093755a854fa0bffea38a9bad4309444f379b
+
 total_incorrectas=0
 total_correctas=0
 
@@ -56,28 +54,26 @@ while(opcionInicio !=5):
 6. salir
 """))
                      if opcion == 1:
-                            #Resultado consigue el articulo con titulo y contenido sin el id para que sea mas presentable
-                            resultado = coleccion.find_one({"Titulo":"Tabaco frena el desarrollo en Guatemala"},{"_id": 0, "Titulo": 1, "Contenido": 1})
-                            for campo in campos_a_mostrar:
-                                   print(str(resultado[campo]))
+                            resultado = ver_articulos(db, "Tabaco frena el desarrollo en Guatemala")
+                            for i in resultado:
+                                   print(i)
+                                   
                      elif opcion == 2:
-                            resultado = coleccion.find_one({"Titulo":"Impulsan mejores controles"},{"_id": 0, "Titulo": 1, "Contenido": 1})
-                            for campo in campos_a_mostrar:
-                                   print(str(resultado[campo]) + "\n")
-                            else:
-                                   print("En desarrollo...")
+                            resultado = ver_articulos(db, "Impulsan mejores controles")
+                            for i in resultado:
+                                   print(i)
                      elif opcion == 3:
-                            resultado = coleccion.find_one({"Titulo":"Efectos del tabaco en la salud"},{"_id": 0, "Titulo": 1, "Contenido": 1})
-                            for campo in campos_a_mostrar:
-                                   print(str(resultado[campo]) + "\n")
+                            resultado = ver_articulos(db, "Efectos del tabaco en la salud")
+                            for i in resultado:
+                                   print(i)
                      elif opcion == 4:
-                            resultado = coleccion.find_one({"Titulo":"Contaminacion por colillas de cigarro"},{"_id": 0, "Titulo": 1, "Contenido": 1})
-                            for campo in campos_a_mostrar:
-                                   print(str(resultado[campo]) + "\n")
+                            resultado = ver_articulos(db, "Contaminacion por colillas de cigarro")
+                            for i in resultado:
+                                   print(i)
                      elif opcion == 5:
-                            resultado = coleccion.find_one({"Titulo":"Reciclando colillas de cigarro"},{"_id": 0, "Titulo": 1, "Contenido": 1})
-                            for campo in campos_a_mostrar:
-                                   print(str(resultado[campo]) + "\n")
+                            resultado = ver_articulos(db, "Reciclando colillas de cigarro")
+                            for i in resultado:
+                                   print(i)
                      elif opcion == 6:
                             opcion = 6
                      else:
