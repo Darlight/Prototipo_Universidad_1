@@ -56,7 +56,7 @@ while desea_jugar == True:
 			#De lo contrario, perdio el juego y se muestra la palabra
 		elif oportunidades == 7 and ("".join(palabra_en_guiones)) != palabra_elegida:
 			print ("usted ha perdido, la palabra correcta era: ", palabra_elegida)
-			#Se pregunta si desea jugar otra vez
+	#Se pregunta si desea jugar otra vez
 	respuesta = input("Desea jugar de nuevo? : si o no ")
 	if respuesta == "si":
 		desea_jugar = True

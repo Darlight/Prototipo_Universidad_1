@@ -2,13 +2,17 @@
 #Fecha de creacion: 5/19/2018
 #Mario Perdomo 18029 Michele Benvenuto 18232 Josue Sagastume 18173
 #Funcion: Juego de encadenar palabras con la ultima letra
+
+#Se importa las funciones 
 from funcionesEncadenaPalabras import *
 import random
 print("Bienvenido al Encadena Palabras! \n")
 print("Debera generar una nueva palabra utilizando la última letra de la palabra proporcionada. \n")
 print("Tendrá 3 oportunidades\n")
 desea_jugar = True
+#Se comienza el juego
 while  desea_jugar == True:
+	#Se crea el valor de oportunidades, puntaje y una lista que guarde palabras
 	oportunidades = 3
 	puntaje = 0
 	palabras_usadas = []
