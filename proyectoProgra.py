@@ -17,10 +17,15 @@ db = conexion.proyecto
 #Parte del modulo
 campos_a_mostrar = ["Titulo","Contenido"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 total_correctas = 0
 total_incorrectas = 0
 
 
+=======
+total_incorrectas=0
+total_correctas=0
+>>>>>>> 4c75b226766140239cef8dafcccb1617de72846f
 =======
 total_incorrectas=0
 total_correctas=0
