@@ -165,7 +165,7 @@ while desea_jugar == True:
 					for j in range(2,3):
 						tercera_fila += imagen[i][j][l*31:l*31+30]+" "
 				print(tercera_fila)
-			terminar = True
+			intentos = 0
 		elif intentos == 0:
 			print("Ha Perdido... \n")
 			print("La respuesta final era: ")
@@ -197,7 +197,7 @@ while desea_jugar == True:
 					for j in range(2,3):
 						tercera_fila += imagen[i][j][l*31:l*31+30]+" "
 				print(tercera_fila)
-			terminar = True
+			intentos = 0
 	#Se preugunta si desea jugar de nuevo.
 	pregunta = input("Desea jugar de nuevo? Escriba si para jugar, escriba otra cosa para terminar el juego.  \n").lower()
 	if pregunta == "si":
