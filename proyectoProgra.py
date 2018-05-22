@@ -11,25 +11,26 @@ from palabras import lista_de_palabras
 from time import sleep
 from funcionesEncadenaPalabras import *
 from funcionesOrdenarImagen import *
+from FuncionesArticulos import *
+
 opcion = 0
 conexion = pymongo.MongoClient()
 db = conexion.proyecto
 #Parte del modulo
 campos_a_mostrar = ["Titulo","Contenido"]
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 total_correctas = 0
 total_incorrectas = 0
 
 
-=======
+
 total_incorrectas=0
 total_correctas=0
->>>>>>> 4c75b226766140239cef8dafcccb1617de72846f
-=======
+
+
 total_incorrectas=0
 total_correctas=0
->>>>>>> 4c75b226766140239cef8dafcccb1617de72846f
+
 mensajeBienvenida="*******************************************************************************\nBIENVENIDO\n******************************************************************************* "
 menuInicio="Elija una de las sigueintes opciones:\n 1)Leer articulo\n 2)Mini-Juegos\n 3)Comprobacion de lectura\n 4)Ver estadisticas\n 5)Salir"
 print(mensajeBienvenida)
@@ -44,6 +45,9 @@ while(opcionInicio !=5):
                      opcion =  int(input("""
 1. Tabaco frena el desarrollo de Guatemala
 2. Impulsan mejores controles
+3. Efectos del tabaco en la salud
+4. Contaminacion por colillas de cigarro
+5. Reciclando colillas de cigarro
 6. salir
 """))
                      if opcion == 1:
@@ -58,11 +62,17 @@ while(opcionInicio !=5):
                             else:
                                    print("En desarrollo...")
                      elif opcion == 3:
-                            print("En desarrollo")
+                            resultado = coleccion.find_one({"Titulo":"Efectos del tabaco en la salud"},{"_id": 0, "Titulo": 1, "Contenido": 1})
+                            for campo in campos_a_mostrar:
+                                   print(str(resultado[campo]) + "\n")
                      elif opcion == 4:
-                            print("En desarrollo")
+                            resultado = coleccion.find_one({"Titulo":"Contaminacion por colillas de cigarro"},{"_id": 0, "Titulo": 1, "Contenido": 1})
+                            for campo in campos_a_mostrar:
+                                   print(str(resultado[campo]) + "\n")
                      elif opcion == 5:
-                            print("En desarrollo")
+                            resultado = coleccion.find_one({"Titulo":"Reciclando colillas de cigarro"},{"_id": 0, "Titulo": 1, "Contenido": 1})
+                            for campo in campos_a_mostrar:
+                                   print(str(resultado[campo]) + "\n")
                      elif opcion == 6:
                             opcion = 6
                      else:
@@ -489,43 +499,42 @@ while(opcionInicio !=5):
               opcionInicio=int(input())
        if(opcionInicio==4):
               #Estadisticas Josue
-              coleccion=db.estadisticas
               sleep(0.5)
               print("*******************************************************************************")
-              print("                                  PROMEDIOS                                    ")
+              print("                                  PROMEDIOS                                    ")  #IMPRIME EL TITULO DE LOS PROMEDIOS
               print("*******************************************************************************")
-              promedio_correctas = promedio_estadisticas(db, "Correctas")
-              for i in promedio_correctas:
+              promedio_correctas = promedio_estadisticas(db, "Correctas")  #UTILIZO LA FUNCION PARA OBTENER EL PROMEDIO DE RESPUESTAS CORRECTAS
+              for i in promedio_correctas:  #PARA CADA ELEMENTO OBTENIDO DE ESTA FUNCION, IMPRIME ESTE ELEMENTO. DE NO SER ASI, SE MOSTRARA UNA LISTA
                      print(str(i))
               
-              promedio_incorrectas = promedio_estadisticas(db, "Incorrectas")
-              for i in promedio_incorrectas:
+              promedio_incorrectas = promedio_estadisticas(db, "Incorrectas") #UTILIZO LA FUNCION PARA OBTENER EL PROMEIDO DE RESPUESTAS INCORRECTAS
+              for i in promedio_incorrectas: #PARA CADA ELEMENTO OBTENIDO DE ESTA FUNCION, IMPRIME ESTE ELEMENTO. DE NO SER ASI, SI MOSTRARA UNA LISTA
                      print(str(i))
 
               print(" ")
               print(" ")
               sleep(0.5)
               print("*******************************************************************************")
-              print("                                     MODA                                      ")
+              print("                                     MODA                                      ")  #IMPRIME EL TITULO DE LAS MODAS
               print("*******************************************************************************")
-              moda_correctas = moda_estadisticas(db, "Correctas")
-              for i in moda_correctas:
-                     print("Moda de correctas: " + str(i))
+              moda_correctas = moda_estadisticas(db, "Correctas") #UTILIZO LA FUNCION PARA OBTENER LA MODA DE LAS RESPUESTAS CORRECTAS
+              for i in moda_correctas: #POR CADA ELEMENTO QUE SE ENCUENTRE DENTRO DEL VALOR OBTENIDO DE LA FUNCION, ESTE SE IMPRIMIRA EN PANTALLA
+                     print("Moda de correctas: " + str(i)) 
               print(" ")
-              moda_incorrectas = moda_estadisticas(db, "Incorrectas")
-              for i in moda_incorrectas:
+              moda_incorrectas = moda_estadisticas(db, "Incorrectas") #UTILIZO LA FUNCION PARA OBTENER LA MODA DE LAS RESPUESTAS INCORRECTAS
+              for i in moda_incorrectas: #POR CADA ELEMENTO QUE SE ENCUENTRE DENTRO DEL VALOR OBTENIDO DE LA FUNCION, ESTE SE IMPRIMIRA EN PANTALLA
                      print("Moda de incorrectas: " + str(i))
 
               print(" ")
               print(" ")
               sleep(0.5)
               print("*******************************************************************************")
-              print("                                  RESULTADOS                                   ")
+              print("                                  RESULTADOS                                   ") #IMPRIME EL TITULO DE LOS RESULTADOS
               print("*******************************************************************************")
-              resultado = ver_estadisticas(db)
-              for i in resultado:
+              resultado = ver_estadisticas(db) #UTILIZO LA FUNCION PARA OBTENER LOS DATOS DE CADA USUARIO Y ASI PODER MOSTRARLOS EN PANTALLA
+              for i in resultado:  #PARA CADA ELEMENTO EN EL RESULTADO OBTENIDO DE ESTA FUNCION, ESTE SE IMPRIMIRA EN PANTALLA
                      print(i)
-                     sleep(0.03)
+                     sleep(0.03) #CON UNA PAUSA DE 0.03s ENTRE CADA ELEMENTO
 
               sleep(1)
               print(mensajeBienvenida)
